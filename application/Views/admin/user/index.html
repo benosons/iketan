@@ -1,0 +1,140 @@
+{% extends "admin/layout.html" %} {% block content %}
+
+<div class="content-header row"></div>
+<div class="content-body">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Data Pengguna</h4>
+          <a class="heading-elements-toggle"
+            ><i class="la la-ellipsis-v font-medium-3"></i
+          ></a>
+          <div class="heading-elements">
+            <ul class="list-inline mb-0">
+              <li>
+                <button type="button" class="btn btn-success btn-min-width mr-1 mb-1" id="add_user"
+                data-toggle="modal" data-target="#modal_add_user"><i class="la la-plus"></i>
+                  Tambah Pengguna</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-content collapse show">
+          <div class="card-body card-dashboard">
+            <div class="table-responsive">
+              <table id="all-user" class="table table-striped table-bordered bootstrap-3">
+                <thead>
+                  <tr>
+                    <th>#No</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Tanggal</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" tabindex="-1" id="modal_add_user" data-backdrop="static">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title"><i class="bi bi-person-plus fs-2 me-2"></i> <wrd>Tambah</wrd> Data Pengguna</h5>
+
+              <!--begin::Close-->
+              <a class="btn btn-icon" data-dismiss="modal" aria-label="Close">
+                  <span class="la la-times"></span>
+              </a>
+              <!--end::Close-->
+          </div>
+
+          <form action="adduser" method="POST">
+            <input type="hidden" name="id" id="id" />
+            <div class="modal-body">
+
+              <fieldset>
+                <div class="form-group">
+                  <h5>Nama Lengkap</h5>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="la la-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="nama lengkap" name="name" id="name">
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <div class="form-group">
+                  <h5>Email</h5>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="la la-envelope"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="email" name="email" id="email">
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <div class="form-group">
+                  <h5>Username</h5>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="la la-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="username" name="username" id="username">
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <div class="form-group">
+                  <h5>Password</h5>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="la la-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="password" name="password" id="password">
+                  </div>
+                </div>
+              </fieldset>
+              
+              <fieldset>
+                <div class="form-group">
+                  <h5>Role</h5>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id=""><i class="la la-key"></i></span>
+                    </div>
+                    <select class="form-select" name="id_role" id="id_role" >
+                      <option value="0">Role...</option>
+                      {% for role in data_role %}
+                      <option value="{{role.id}}">{{role.role}}</option>
+                      {% endfor %}
+                  </select>
+                  </div>
+                </div>
+              </fieldset>
+              
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm mr-1 mb-1 " data-dismiss="modal"><i class="la la-times"></i> Batal</button>
+              <button type="submit" class="btn btn-success btn-sm mr-1 mb-1 "><i class="la la-check"></i> Simpan</button>
+            </div>
+          </form>
+      </div>
+  </div>
+</div>
+{% endblock %}
