@@ -31,11 +31,11 @@ class Database extends \CodeIgniter\Database\Config
 	 */
 	public $default = [
 		'DSN'          => '',
-		'hostname'     => 'localhost',
-		'username'     => 'root',
+		'hostname'     => '',
+		'username'     => '',
 		'password'     => '',
-		'database'     => 'iketan',
-		'DBDriver'     => 'MySQLi',
+		'database'     => '',
+		'DBDriver'     => '',
 		'DBPrefix'     => '',
 		'pConnect'     => false,
 		'DBDebug'     => (ENVIRONMENT !== 'production'),
