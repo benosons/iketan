@@ -33,7 +33,7 @@ function getallproduk() {
           elem += `<div class="col-lg-3 col-sm-6 col-6 d-flex ">
                       <div class="productset flex-fill">
                         <div class="productsetimg">
-                            <img src="https://dreamspos.dreamguystech.com/html/template/assets/img/product/product29.jpg" alt="img">
+                            <img src="/assets/images/produk1.jpg" alt="img">
                             <h6>${element.qty}</h6>
                             <div class="check-product">
                               <i class="fa fa-check"></i>
@@ -62,13 +62,14 @@ function getharianterjual() {
     success: function (result) {
       let elem = ''
       let totall = 0
+      if(result.code != '0'){
       $('#total-produk').text(result.data.length)
         result.data.forEach(element => {
           elem += `<ul class="product-lists">
                       <li>
                         <div class="productimg">
                             <div class="productimgs">
-                              <img src="https://dreamspos.dreamguystech.com/html/template/assets/img/product/product30.jpg" alt="img">
+                              <img src="/assets/images/produk1.jpg" alt="img">
                             </div>
                             <div class="productcontet">
                               <h4>${element.nama}
@@ -92,6 +93,7 @@ function getharianterjual() {
 
                   totall += element.qty * element.harga;
         });
+      }
         
         $('#list_produk_terjual').html(elem)
         $('#total-all').html(totall)
