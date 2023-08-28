@@ -30,7 +30,7 @@ function getallproduk() {
       let elem = ''
         console.log('ada');
         result.data.forEach(element => {
-          elem += `<div class="col-lg-3 col-sm-6 d-flex ">
+          elem += `<div class="col-lg-3 col-sm-6 col-6 d-flex ">
                       <div class="productset flex-fill">
                         <div class="productsetimg">
                             <img src="https://dreamspos.dreamguystech.com/html/template/assets/img/product/product29.jpg" alt="img">
