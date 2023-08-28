@@ -42,7 +42,7 @@ function getallproduk() {
                         <div class="productsetcontent">
                             <h4>${element.nama}</h4>
                             <h6>Rp. ${element.harga}</h6>
-                            <button onclick="jual('${element.id}', '${element.harga}')" class="btn btn-adds" data-bs-toggle="modal" data-bs-target="#create"><i class="fa fa-plus me-2"></i>JUAL</button>
+                            <button onclick="jual('${element.id}', '${element.harga}')" class="btn btn-adds"><i class="fa fa-plus me-2"></i>JUAL</button>
                         </div>
                       </div>
                   </div>`
@@ -93,9 +93,9 @@ function getharianterjual() {
 
                   totall += element.qty * element.harga;
         });
+        $('#list_produk_terjual').html(elem)
       }
         
-        $('#list_produk_terjual').html(elem)
         $('#total-all').html(totall)
     }
   })
